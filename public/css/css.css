@@ -1,0 +1,60 @@
+.w3-text-theme {color:#1c8b98 !important}
+.w3-theme {color:#fff !important; background-color:#1c8b98 !important}
+
+.w3-theme-l5 {color:#000 !important; background-color:#f4fcfd !important}
+.w3-theme-l4 {color:#000 !important; background-color:#c7f0f5 !important}
+.w3-theme-l3 {color:#000 !important; background-color:#90e1ea !important}
+.w3-theme-l2 {color:#000 !important; background-color:#58d2e0 !important}
+.w3-theme-l1 {color:#000 !important; background-color:#26bed0 !important}
+.w3-theme-d1 {color:#fff !important; background-color:#197d89 !important}
+.w3-theme-d2 {color:#fff !important; background-color:#166f7a !important}
+.w3-theme-d3 {color:#fff !important; background-color:#14616a !important}
+.w3-theme-d4 {color:#fff !important; background-color:#11535b !important}
+.w3-theme-d5 {color:#fff !important; background-color:#0e454c !important}
+
+.w3-theme-light {color:#000 !important; background-color:#26bed0 !important}
+.w3-theme-dark {color:#fff !important; background-color:#11535b !important}
+.w3-theme-action {color:#fff !important; background-color:#E14B3B !important}
+.ellipsis {text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+
+.fa-thumbs-o-up {color: #1c8b98; font-size:28px !important; margin-top:30px}
+header {
+    width: 100%;
+    height: 50px;
+    background: #1c8b98;
+    position: fixed;
+    color:#fff;
+    top: 0;
+	-webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+	-moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
+	box-shadow:         0px 3px 5px rgba(100, 100, 100, 0.49);
+}
+footer {
+    width: 100%;
+    height: 50px;
+    background: #1c8b98;
+    color:#fff;
+    position: fixed;
+    bottom: 0;
+}
+.content {
+	width: 90%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+.header-h3 {
+	margin-top:10px;margin-left:10px;margin-right:10px;
+}
+.footer-p {
+	margin-left:10px;
+}
+textarea {
+	overflow:hidden;
+	width: 100%;
+}
+#question-text {
+    border-radius: 15px;
+    border: 2px solid #1c8b98;
+    padding: 10px; 
+	outline:0px solid transparent;
+}

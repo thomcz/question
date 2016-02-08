@@ -1,0 +1,11 @@
+include layout.jade
+body
+    header
+      h3.header-h3
+        i.fa.fa-arrow-left(onclick="routeTo('/')")
+        |   Ask
+        i.fa.fa-send(onclick="sendQuestion()", style='float:right; margin-top: 5px')
+    .w3-container.content
+      p
+        div#question-text(contenteditable='true')
+include footer.jade

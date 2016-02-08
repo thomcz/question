@@ -1,0 +1,20 @@
+include layout.jade
+    header
+      h3.header-h3
+        i.w3-opennav.fa.fa-bars(onclick='w3_open()')
+        |   Questionater
+    nav.w3-sidenav.w3-card-2.w3-white.w3-top(style='width:70%;display:none')
+      .w3-container.w3-theme-d2
+        span.w3-closenav.w3-right.w3-xlarge(onclick='w3_close()') x
+        br
+        .w3-padding.w3-center
+          p
+            i.fa.fa-question-circle(style='font-size:100px;')
+      br
+      a(href='#') Movies
+      a(href='#') Friends
+      a(href='#') Messages
+    .w3-container.content
+    hr
+    p #{q}
+    include footer.jade
