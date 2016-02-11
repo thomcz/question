@@ -15,6 +15,16 @@ include layout.jade
       a(href='#') Friends
       a(href='#') Messages
     .w3-container.content
-    hr
-    p #{q}
+      hr
+      each val in questions
+        .w3-row(onclick='openMyQuestion(#{val})')
+          .w3-col.s9.w3-container(style="margin-top:-20px; margin-bottom:-40px")
+            h4.w3-text-red.ellipsis
+              | #{val.text}
+            p.ellipsis 3 bannanen ssssssssssssssssssssssssssssssssssssssund eine birne
+          .w3-col.s1.w3-container(style='margin-top:-20px;')
+            i.fa.fa-thumbs-o-up
+          .w3-col.s1.w3-container
+            p #{val.votes}
+        hr
     include footer.jade

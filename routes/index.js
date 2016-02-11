@@ -51,15 +51,18 @@ var insertQuestion = function(req, res, db, callback) {
 };
 
 var getQuestions = function(db, res, callback) {
-   var cursor =db.collection('questions').find( );
-   cursor.each(function(err, doc) {
+   var cursor =db.collection('questions').find().toArray(function(err, items) {
+	   res.render('index', {questions : items});
+   });
+   
+   /*cursor.each(function(err, doc) {
       assert.equal(err, null);
       if (doc != null) {
          res.render('index', {q : JSON.stringify(doc)});
       } else {
          callback();
       }
-   });
+   });*/
 };
 
 var getQuestions2 = function(db, res, callback) {
