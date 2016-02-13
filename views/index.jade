@@ -17,7 +17,7 @@ include layout.jade
     .w3-container.content
       hr
       each val in questions
-        .w3-row(onclick='openMyQuestion(#{val})')
+        .w3-row(onclick='openMyQuestion("#{val}")')
           .w3-col.s9.w3-container(style="margin-top:-20px; margin-bottom:-40px")
             h4.w3-text-red.ellipsis
               | #{val.text}

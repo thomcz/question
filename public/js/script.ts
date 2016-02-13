@@ -3,12 +3,11 @@ function routeTo(route : string) {
 }
 
 function sendQuestion() {
-	var textarea : HTMLElement = document.getElementById('question-text');
-	var text : string = textarea.innerHTML;
+	var textarea: HTMLElement = document.getElementById('question-text');
+	var text: string = textarea.innerHTML;
 	window.location.href = '/ask/' + text;
 }
 
-function openMyQuestion(object : Object) {
-alert("id");
-	window.location.href = '/myquestion/';
+function openMyQuestion(question) {
+	window.location.href = '/myquestion/' + question;
 }

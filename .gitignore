@@ -1,1 +1,3 @@
+decls/
 node_modules/
+*.js

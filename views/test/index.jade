@@ -1,8 +1,0 @@
-extends layout
-
-block content
-	mixin pet(name)
-		li.pet= name
-	ul
-		each val in data
-			+pet(val)
