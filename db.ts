@@ -35,9 +35,17 @@ export function insertQuestion(text : string, userId : string, callback: (questi
 	});
 };
 
-export function getQuestions(res, callback) {
+export function getMyQuestions(res, callback) {
    db.collection('questions').find().toArray((error, items) => {
 		if(error) {console.error(error); return; }
 		callback(items);
    });
+};
+
+export function getQuestions(callback) {
+	var cnt = db.collection('questions').count();
+	db.collection('questions').find().limit(5).skip(Math.random() * cnt).toArray((error, items) => {
+		if(error) {console.error(error); return; }
+		callback(items);
+	});
 };

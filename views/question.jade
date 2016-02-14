@@ -4,24 +4,13 @@ header
         i.fa.fa-arrow-left(onclick="routeTo('/')")
         |   Questions
     .w3-container.content
-      hr
-      .w3-row(onclick="routeTo('/answer')")
+    hr
+    each val in questions
+      .w3-row(onclick="routeTo('answer/#{val._id}/#{val.text}')")
         .w3-col.s3.m2.l1.w3-container(style='margin-top:-18px;margin-bottom:-20px')
           i.fa.fa-question-circle(style='font-size:70px;color:#E14B3B')
         .w3-col.s9.m10.l11.w3-container(style='margin-top:-22px; margin-bottom:-20px')
           p.w3-text-red(style='word-wrap:break-word')
-            | Was isasdasdasdasd isasdasdasdasd isasdasdasdasd asdasd asdasd asdasdasdasdasdasd  und gruen?
-      hr
-      .w3-row
-        .w3-col.s3.m2.l1.w3-container(style='margin-top:-18px;margin-bottom:-20px')
-          i.fa.fa-question-circle(style='font-size:70px;color:#E14B3B')
-        .w3-col.s9.m10.l11.w3-container(style='margin-top:-22px;margin-bottom:-20px')
-          p.w3-text-red(style='word-wrap:break-word') Was isasdasdasdasdasdasdasd  und gruen?
-      hr
-      .w3-row
-        .w3-col.s3.m2.l1.w3-container(style='margin-top:-18px;margin-bottom:-20px')
-          i.fa.fa-question-circle(style='font-size:70px;color:#E14B3B')
-        .w3-col.s9.m10.l11.w3-container(style='margin-top:-22px;margin-bottom:-20px')
-          p.w3-text-red(style='word-wrap:break-word') Was isasdasdasdasdasdasdasd  und gruen?
+            | #{val.text}
       hr
 include footer.jade

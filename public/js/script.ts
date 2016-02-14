@@ -8,6 +8,6 @@ function sendQuestion() {
 	window.location.href = '/ask/' + text;
 }
 
-function openMyQuestion(question) {
-	window.location.href = '/myquestion/' + question;
+function openMyQuestion(question_id : string) {
+	window.location.href = '/myquestion/' + question_id;
 }

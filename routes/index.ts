@@ -5,17 +5,17 @@ var app = express.Router();
 
 /* GET home page. */
 app.get('/', (req, res) => {
-	db.getQuestions(res, items => {
+	db.getMyQuestions(res, items => {
 		res.render('index', {questions : items});
 	});    
 });
 
-app.get('/myquestion/:question', (req, res) => {
-    res.render('myquestion', { myQuestion: req.params.question});
+app.get('/myquestion/:question_id', (req, res) => {
+    res.render('myquestion', { myQuestion: req.params.question_id});
 });
 
 app.get('/ask', (req, res) => {
-    res.render('ask', { title: 'fuck' , data: ['cats','dogs','bird']});
+    res.render('ask');
 });
 app.get('/ask/:question', (req, res) => {
 	db.insertQuestion(req.params.question, "100a", question => {
@@ -24,7 +24,13 @@ app.get('/ask/:question', (req, res) => {
 });
 
 app.get('/question', (req, res) => {
-    res.render('question', { title: 'fuck' , data: ['cats','dogs','bird']});
+	db.getQuestions(items => {
+		res.render('question', {questions : items});
+	});
+});
+
+app.get('/answer/:qid/:text', (req, res) => {
+	res.render('answer', {qid: req.params.qid, text: req.params.text});
 });
 
 app.get('/answer', (req, res) => {
