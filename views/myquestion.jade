@@ -7,26 +7,15 @@ header
       hr
       .w3-row
         .w3-col.s9.m10.l10.w3-container(style='margin-top:-20px; margin-bottom:-20px')
-          h4.w3-text-red(style='word-wrap:break-word') #{myQuestion}
+          h4.w3-text-red(style='word-wrap:break-word') #{question.text}
         .w3-col.s1.m1.l1.w3-container(style='margin-top:-20px;')
           i.fa.fa-thumbs-o-up
         .w3-col.s1.m1.l1.w3-container
           p 10
       hr
-      .w3-row
-        .w3-col.w3-container(style='margin-top:-20px; margin-bottom:-20px')
-          p(style='word-wrap:break-word;text-align: right;') ksdjfosdhfasfjsbdhbdshjcbdhbdvosdijosdbvjjoijoibbhvgvgv?
-      hr
-      .w3-row
-        .w3-col.w3-container(style='margin-top:-20px; margin-bottom:-20px')
-          p(style='word-wrap:break-word;text-align: right;') ksdjfosdhfasfjsbdhbdshjcbdhbdvosdijosdbvjjoijoibbhvgvgv?
-      hr
-      .w3-row
-        .w3-col.w3-container(style='margin-top:-20px; margin-bottom:-20px')
-          p(style='word-wrap:break-word') ksdjfosdhfasfjsbdhbdshjcbdhbdvosdijosdbvjjoijoibbhvgvgv?
-      hr
-      .w3-row
-        .w3-col.s9.w3-container(style='margin-top:-20px; margin-bottom:-20px')
-          p(style='word-wrap:break-word') ksdjfosdhfasfjsbdhbdshjcbdhbdvosdijosdbvjjoijoibbhvgvgv?
-      hr
+      each val in answers
+        .w3-row
+          .w3-col.w3-container(style='margin-top:-20px; margin-bottom:-20px')
+             p(style='word-wrap:break-word;text-align: right;') #{val.text}
+        hr
 include footer.jade

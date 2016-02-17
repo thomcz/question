@@ -18,13 +18,11 @@ include layout.jade
       hr
       each val in questions
         .w3-row(onclick='openMyQuestion("#{val._id}")')
-          .w3-col.s9.w3-container(style="margin-top:-20px; margin-bottom:-40px")
-            h4.w3-text-red.ellipsis
-              | #{val.text}
-            p.ellipsis 3 bannanen ssssssssssssssssssssssssssssssssssssssund eine birne
-          .w3-col.s1.w3-container(style='margin-top:-20px;')
+          .w3-col.s9.m10.l10.w3-container(style='margin-top:-20px; margin-bottom:-20px')
+            h4.w3-text-red(style='word-wrap:break-word') #{val.text}
+          .w3-col.s1.m1.l1.w3-container(style='margin-top:-20px;')
             i.fa.fa-thumbs-o-up
-          .w3-col.s1.w3-container
+          .w3-col.s1.m1.l1.w3-container
             p #{val.votes}
         hr
     include footer.jade

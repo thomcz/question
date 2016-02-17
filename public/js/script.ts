@@ -8,6 +8,12 @@ function sendQuestion() {
 	window.location.href = '/ask/' + text;
 }
 
+function sendAnswer(qid : string) {
+	var textarea: HTMLElement = document.getElementById('answer-text');
+	var text: string = textarea.innerHTML;
+	window.location.href = '/answering/' + qid + '/' + text;
+}
+
 function openMyQuestion(question_id : string) {
 	window.location.href = '/myquestion/' + question_id;
 }

@@ -11,7 +11,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/myquestion/:question_id', (req, res) => {
-    res.render('myquestion', { myQuestion: req.params.question_id});
+	db.getQuestion(req.params.question_id, question => {
+		db.getAnswers(req.params.question_id, answers => {
+			res.render('myquestion', {question : question, answers : answers});
+		});
+	});
 });
 
 app.get('/ask', (req, res) => {
@@ -31,6 +35,13 @@ app.get('/question', (req, res) => {
 
 app.get('/answer/:qid/:text', (req, res) => {
 	res.render('answer', {qid: req.params.qid, text: req.params.text});
+});
+
+app.get('/answering/:qid/:text', (req, res) => {
+	db.insertAnswer(req.params.qid, req.params.text, "100a", answer => {
+		console.log(answer);
+		res.redirect('/question');
+	});
 });
 
 app.get('/answer', (req, res) => {

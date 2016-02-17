@@ -52,7 +52,7 @@ textarea {
 	overflow:hidden;
 	width: 100%;
 }
-#question-text {
+.textarea-div {
     border-radius: 15px;
     border: 2px solid #1c8b98;
     padding: 10px; 
