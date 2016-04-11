@@ -1,12 +1,12 @@
 import * as express from "express";
 import * as db from "../db";
-
 var app = express.Router();
+//var user_id : string;
 
 /* GET home page. */
-app.get('/', (req, res) => {
-	db.getMyQuestions(res, items => {
-		res.render('index', {questions : items});
+app.get('/:userid', (req, res) => {
+	db.getMyQuestions(req.params.userid, items => {
+		res.render('index', {questions : items, userid : req.params.userid});
 	});    
 });
 
@@ -18,34 +18,30 @@ app.get('/myquestion/:question_id', (req, res) => {
 	});
 });
 
-app.get('/ask', (req, res) => {
-    res.render('ask');
+app.get('/ask/:userid', (req, res) => {
+    res.render('ask', {userid : req.params.userid});
 });
-app.get('/ask/:question', (req, res) => {
-	db.insertQuestion(req.params.question, "100a", question => {
-		res.redirect('/ask');
+app.get('/ask/:userid/:question', (req, res) => {
+	db.insertQuestion(req.params.question, req.params.userid, question => {
+		res.redirect('/ask/' + req.params.userid);
 	});
 });
 
-app.get('/question', (req, res) => {
-	db.getQuestions(items => {
-		res.render('question', {questions : items});
+app.get('/question/:userid', (req, res) => {
+	db.getQuestions(req.params.userid, items => {
+		res.render('question', {questions : items, userid : req.params.userid});
 	});
 });
 
-app.get('/answer/:qid/:text', (req, res) => {
-	res.render('answer', {qid: req.params.qid, text: req.params.text});
+app.get('/answer/:userid/:qid/:text', (req, res) => {
+	res.render('answer', {qid: req.params.qid, text: req.params.text, userid : req.params.userid});
 });
 
-app.get('/answering/:qid/:text', (req, res) => {
-	db.insertAnswer(req.params.qid, req.params.text, "100a", answer => {
+app.get('/answering/:userid/:qid/:text', (req, res) => {
+	db.insertAnswer(req.params.qid, req.params.text, req.params.userid, answer => {
 		console.log(answer);
-		res.redirect('/question');
+		res.redirect('/question/' + req.params.userid);
 	});
-});
-
-app.get('/answer', (req, res) => {
-    res.render('answer', { title: 'fuck' , data: ['cats','dogs','bird']});
 });
 
 module.exports = app;

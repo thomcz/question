@@ -11,6 +11,8 @@ export interface Question {
 	userid: string;
 	date: Date;
 	votes: number;	
+	answers: number;
+	random: number;
 }
 
 export interface Answer {
@@ -27,7 +29,9 @@ export function insertQuestion(text : string, userid : string, callback: (questi
 			"text" : text,
 			"user_id" : userid,
 			"date" : new Date(),
-			"votes" : 0
+			"votes" : 0,
+			"answers" : 0,
+			"random" : Math.random()
 		}, (error, question) => {
 			if(error) {console.error(error); return; }
 			callback(question);
@@ -70,16 +74,19 @@ export function getAnswers(qid : string, callback) {
    });
 };
 
-export function getMyQuestions(res, callback) {
-   db.collection('questions').find().toArray((error, items) => {
+export function getMyQuestions(userid, callback) {
+   db.collection('questions').find({'user_id' : userid}).toArray((error, items) => {
 		if(error) {console.error(error); return; }
 		callback(items);
    });
 };
 
-export function getQuestions(callback) {
-	var cnt = db.collection('questions').count();
-	db.collection('questions').find().limit(5).skip(Math.random() * cnt).toArray((error, items) => {
+export function getQuestions(userid, callback) {
+	var result = db.collection('questions').find({'user_id' : {$nin: [userid]}, 'random' : {$gte: Math.random()}});
+	if (result == null) {
+		result = db.collection('questions').find({'user_id' : {$nin: [userid]}, 'random' : {$lte: Math.random()}});
+	}
+	result.limit(5).toArray((error, items) => {
 		if(error) {console.error(error); return; }
 		callback(items);
 	});

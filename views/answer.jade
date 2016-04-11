@@ -1,9 +1,9 @@
 include layout.jade
 header
       h3.header-h3
-        i.fa.fa-arrow-left(onclick="routeTo('/question')")
+        i.fa.fa-arrow-left(onclick="routeTo('/question/#{userid}')")
         |   Answer
-        i.fa.fa-send(onclick='sendAnswer("#{qid}")', style='float:right; margin-top: 5px')
+        i.fa.fa-send(onclick="sendAnswer('#{qid}', '#{userid}')", style='float:right; margin-top: 5px')
     .w3-container.content
       hr
       .w3-row

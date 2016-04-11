@@ -21,6 +21,7 @@ app.use('/', routes);
 
 app.use(express.static(__dirname + '/css'));
 
+
 // Make our db accessible to our router
 /*app.use(function(req,res,next){
     req.db = db;

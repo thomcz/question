@@ -2,9 +2,9 @@ include layout.jade
 body
     header
       h3.header-h3
-        i.fa.fa-arrow-left(onclick="routeTo('/')")
+        i.fa.fa-arrow-left(onclick="routeTo('/#{userid}')")
         |   Ask
-        i.fa.fa-send(onclick="sendQuestion()", style='float:right; margin-top: 5px')
+        i.fa.fa-send(onclick="sendQuestion('#{userid}')", style='float:right; margin-top: 5px')
     .w3-container.content
       p
         div#question-text.textarea-div(contenteditable='true')

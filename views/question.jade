@@ -1,12 +1,12 @@
 include layout.jade
 header
       h3.header-h3
-        i.fa.fa-arrow-left(onclick="routeTo('/')")
+        i.fa.fa-arrow-left(onclick="routeTo('/#{userid}')")
         |   Questions
     .w3-container.content
     hr
     each val in questions
-      .w3-row(onclick="routeTo('answer/#{val._id}/#{val.text}')")
+      .w3-row(onclick="routeTo('/answer/#{userid}/#{val._id}/#{val.text}')")
         .w3-col.s3.m2.l1.w3-container(style='margin-top:-18px;margin-bottom:-20px')
           i.fa.fa-question-circle(style='font-size:70px;color:#E14B3B')
         .w3-col.s9.m10.l11.w3-container(style='margin-top:-22px; margin-bottom:-20px')
