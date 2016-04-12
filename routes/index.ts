@@ -44,4 +44,11 @@ app.get('/answering/:userid/:qid/:text', (req, res) => {
 	});
 });
 
+app.get('/delete/:userid/:qid', (req, res) => {
+	db.removeQuestion(req.params.qid, question => {
+		console.log(question);
+		res.redirect('/' + req.params.userid);
+	});
+});
+
 module.exports = app;

@@ -91,3 +91,10 @@ export function getQuestions(userid, callback) {
 		callback(items);
 	});
 };
+
+export function removeQuestion(qid, callback) {
+	db.collection('questions').deleteMany({'_id' : new mongodb.ObjectId(qid)}, (error, result) => {
+		console.log(result);
+		callback();
+	});
+}

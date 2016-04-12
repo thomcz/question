@@ -3,6 +3,7 @@ header
       h3.ellipsis.header-h3
         i.fa.fa-arrow-left(onclick="routeTo('/#{question.user_id}')")
         |   Questionator
+        i.fa.fa-remove(onclick="routeTo('/delete/#{question.user_id}/#{question._id}')", style='float:right; margin-top: 5px')
     .w3-container.content
       hr
       .w3-row
