@@ -3,6 +3,7 @@ header
       h3.header-h3
         i.fa.fa-arrow-left(onclick="routeTo('/#{userid}')")
         |   Questions
+        i.fa.fa-refresh(onclick="routeTo('/question/#{userid}')", style='float:right; margin-top: 5px')
     .w3-container.content
     hr
     each val in questions
